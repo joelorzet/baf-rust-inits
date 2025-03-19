@@ -75,5 +75,42 @@ fn main() {
     let valor2 = obtener_valor2();
     println!("Valor retornado: {}", valor2);
 
+    fn factorizar_numero(numero_a_factorizar: i128) -> String {
+        let mut multiplos: Vec<i128> = Vec::new();
 
+        for numero_actual in 2..=numero_a_factorizar - 1 {
+            if numero_a_factorizar % numero_actual == 0 {
+                multiplos.push(numero_actual);
+            }
+        }
+
+        return format!("Los multiplos de {} son: {:?}", numero_a_factorizar, multiplos);
+    }
+
+    fn es_numero_primo(numero_a_verificar: i128) -> String {
+        if numero_a_verificar <= 0 {
+            return "0".to_string();
+        }
+
+        let mut es_primo = true;
+
+        for divisor in 3..=numero_a_verificar - 1 {
+            let resto = numero_a_verificar % divisor;
+
+            if resto == 0 {
+                es_primo = false;
+                break;
+            }
+        }
+
+        if es_primo {
+            return format!("El numero {} es primo", numero_a_verificar);
+        } else {
+            factorizar_numero(numero_a_verificar)
+        }
+    }
+
+    let es_primo = es_numero_primo(15);
+
+    println!("{}", es_primo);
 }
