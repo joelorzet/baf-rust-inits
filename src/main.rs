@@ -94,7 +94,7 @@ fn main() {
 
         let mut es_primo = true;
 
-        for divisor in 3..=numero_a_verificar - 1 {
+        for divisor in 2..=numero_a_verificar - 1 {
             let resto = numero_a_verificar % divisor;
 
             if resto == 0 {
@@ -110,7 +110,7 @@ fn main() {
         }
     }
 
-    let es_primo = es_numero_primo(15);
+    let es_primo = es_numero_primo(4);
 
     println!("{}", es_primo);
 }
